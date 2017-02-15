@@ -32,7 +32,7 @@ public extension UIFont {
     ///
     /// - parameter ofSize: The preferred font size.
     /// - returns: A UIFont object of FontAwesome.
-    public class func fontAwesome(ofSize fontSize: CGFloat) -> UIFont {
+    public class func materialDesign(ofSize fontSize: CGFloat) -> UIFont {
         let name = "FontAwesome"
         if UIFont.fontNames(forFamilyName: name).isEmpty {
             FontLoader.loadFont(name)
@@ -49,7 +49,7 @@ public extension String {
     ///
     /// - parameter name: The preferred icon name.
     /// - returns: A string that will appear as icon with FontAwesome.
-    public static func fontAwesomeIcon(name: FontAwesome) -> String {
+    public static func materialDesignIcon(name: FontAwesome) -> String {
         return name.rawValue.substring(to: name.rawValue.characters.index(name.rawValue.startIndex, offsetBy: 1))
     }
 
@@ -57,20 +57,20 @@ public extension String {
     ///
     /// - parameter code: The preferred icon name.
     /// - returns: A string that will appear as icon with FontAwesome.
-    public static func fontAwesomeIcon(code: String) -> String? {
+    public static func materialDesignIcon(code: String) -> String? {
 
-        guard let name = self.fontAwesome(code: code) else {
+        guard let name = self.materialDesign(code: code) else {
             return nil
         }
 
-      return self.fontAwesomeIcon(name: name)
+      return self.materialDesignIcon(name: name)
     }
 
     /// Get a FontAwesome icon with the given CSS icon code. Icon code can be found here: http://fontawesome.io/icons/
     ///
     /// - parameter code: The preferred icon name.
     /// - returns: An internal corresponding FontAwesome code.
-    public static func fontAwesome(code: String) -> FontAwesome? {
+    public static func materialDesign(code: String) -> FontAwesome? {
 
         guard let raw = FontAwesomeIcons[code], let icon = FontAwesome(rawValue: raw) else {
             return nil
@@ -90,7 +90,7 @@ public extension UIImage {
     /// - parameter size: The image size.
     /// - parameter backgroundColor: The background color (optional).
     /// - returns: A string that will appear as icon with FontAwesome
-    public static func fontAwesomeIcon(name: FontAwesome, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear) -> UIImage {
+    public static func materialDesignIcon(name: FontAwesome, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear) -> UIImage {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = NSTextAlignment.center
 
@@ -98,7 +98,7 @@ public extension UIImage {
         let fontAspectRatio: CGFloat = 1.28571429
 
         let fontSize = min(size.width / fontAspectRatio, size.height)
-        let attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: name), attributes: [NSFontAttributeName: UIFont.fontAwesome(ofSize: fontSize), NSForegroundColorAttributeName: textColor, NSBackgroundColorAttributeName: backgroundColor, NSParagraphStyleAttributeName: paragraph])
+        let attributedString = NSAttributedString(string: String.materialDesignIcon(name: name), attributes: [NSFontAttributeName: UIFont.materialDesign(ofSize: fontSize), NSForegroundColorAttributeName: textColor, NSBackgroundColorAttributeName: backgroundColor, NSParagraphStyleAttributeName: paragraph])
         UIGraphicsBeginImageContextWithOptions(size, false , 0.0)
         attributedString.draw(in: CGRect(x: 0, y: (size.height - fontSize) / 2, width: size.width, height: fontSize))
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -113,9 +113,9 @@ public extension UIImage {
     /// - parameter size: The image size.
     /// - parameter backgroundColor: The background color (optional).
     /// - returns: A string that will appear as icon with FontAwesome
-    public static func fontAwesomeIcon(code: String, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear) -> UIImage? {
-        guard let name = String.fontAwesome(code: code) else { return nil }
-        return fontAwesomeIcon(name: name, textColor: textColor, size: size, backgroundColor: backgroundColor)
+    public static func materialDesignIcon(code: String, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear) -> UIImage? {
+        guard let name = String.materialDesign(code: code) else { return nil }
+        return materialDesignIcon(name: name, textColor: textColor, size: size, backgroundColor: backgroundColor)
     }
 }
 

@@ -28,48 +28,48 @@ class FontAwesomeTests: XCTestCase {
 
     func testIconFontShouldBeRegisted() {
         let label = UILabel()
-        label.font = UIFont.fontAwesome(ofSize: 200)
+        label.font = UIFont.materialDesign(ofSize: 200)
         XCTAssertNotNil(label.font, "Icon font should not be nil.")
     }
 
     func testLabelText() {
         let label = UILabel()
-        label.font = UIFont.fontAwesome(ofSize: 200)
-        label.text = String.fontAwesomeIcon(name: FontAwesome.github)
+        label.font = UIFont.materialDesign(ofSize: 200)
+        label.text = String.materialDesignIcon(name: FontAwesome.github)
         XCTAssertEqual(label.text, "\u{f09b}")
     }
 
     func testLabelTextFromCode() {
         let label = UILabel()
-        label.font = UIFont.fontAwesome(ofSize: 200)
-        label.text = String.fontAwesomeIcon(code: "fa-github")
+        label.font = UIFont.materialDesign(ofSize: 200)
+        label.text = String.materialDesignIcon(code: "fa-github")
         XCTAssertEqual(label.text, "\u{f09b}")
     }
 
     func testButtonTitle() {
         let button = UIButton()
-        button.titleLabel?.font = UIFont.fontAwesome(ofSize: 30)
-        button.setTitle(String.fontAwesomeIcon(name: .github), for: UIControlState())
+        button.titleLabel?.font = UIFont.materialDesign(ofSize: 30)
+        button.setTitle(String.materialDesignIcon(name: .github), for: UIControlState())
         XCTAssertEqual(button.titleLabel?.text, "\u{f09b}")
     }
 
     func testBarItemTitle() {
         let barItem = UIBarButtonItem()
-        let attributes = [NSFontAttributeName: UIFont.fontAwesome(ofSize: 20)] as Dictionary!
+        let attributes = [NSFontAttributeName: UIFont.materialDesign(ofSize: 20)] as Dictionary!
         barItem.setTitleTextAttributes(attributes, for: UIControlState())
-        barItem.title = String.fontAwesomeIcon(name: .github)
+        barItem.title = String.materialDesignIcon(name: .github)
         XCTAssertEqual(barItem.title, "\u{f09b}")
     }
 
     func testIconImage() {
         let barItem = UIBarButtonItem()
-        barItem.image = UIImage.fontAwesomeIcon(name: FontAwesome.github, textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
+        barItem.image = UIImage.materialDesignIcon(name: FontAwesome.github, textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
         XCTAssertNotNil(barItem.image)
     }
 
     func testIconImageFromCode() {
         let barItem = UIBarButtonItem()
-        barItem.image = UIImage.fontAwesomeIcon(code: "fa-github", textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
+        barItem.image = UIImage.materialDesignIcon(code: "fa-github", textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
         XCTAssertNotNil(barItem.image)
     }
 }

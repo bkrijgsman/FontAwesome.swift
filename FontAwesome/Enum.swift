@@ -309,7 +309,7 @@ public enum FontAwesome: String {
     case folderOpen = "\u{f07c}"
     case folderOpenO = "\u{f115}"
     case font = "\u{f031}"
-    case fontAwesome = "\u{f2b4}"
+    case materialDesign = "\u{f2b4}"
     case fonticons = "\u{f280}"
     case fortAwesome = "\u{f286}"
     case forumbee = "\u{f211}"
